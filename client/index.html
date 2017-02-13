@@ -38,10 +38,44 @@
               md-menu-class="autocomplete-custom-template">
           </md-autocomplete>
         </form>
-
-        <md-button class="md-icon-button" flex  ng-controller="AuthController" ng-click="showAdvanced($event)">
+<div flex layout="row">
+        <!--<md-button class="md-icon-button" flex ng-controller="AuthController" ng-click="showAdvanced($event)">
           <i class="material-icons">person_outline</i>
-        </md-button>
+        </md-button>-->
+
+        <!--로그인 되면 나오는 다이얼-->
+        <div flex layout="column" ng-controller="LoginCtrl" ng-cloak>
+          <div class="lock-size" layout="row" layout-align="center center">
+            <md-fab-speed-dial class="md-fab-top-right" md-open="isOpen" md-direction="{{selectedDirection}}"
+                              ng-class='selectedMode' ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">
+              <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab md-warn">
+                  {{username[0] || 'H+'}}
+                  <!--<i class="material-icons">person_outline</i>-->
+                </md-button>
+              </md-fab-trigger>
+
+              <md-fab-actions ng-controller="AuthController">
+                <md-button aria-label="LogIn" class="md-fab md-raised md-mini" ng-click="showAdvanced($event)">
+                  <!--<i class="material-icons">person_outline</i>-->
+                  <md-tooltip md-direction="left" md-visible="tooltipVisible">로그인</md-tooltip>
+                  <i class="material-icons icon">lock</i>
+                </md-button>
+                <md-button aria-label="LogOut" class="md-fab md-raised md-mini">
+                  <md-tooltip md-direction="left" md-visible="tooltipVisible">로그아웃</md-tooltip>
+                  <i class="material-icons icon" ng-click="signout()">lock_open</i>
+                </md-button>
+                <md-button aria-label="Setting" class="md-fab md-raised md-mini">
+                  <md-tooltip md-direction="left" md-visible="tooltipVisible">셋팅</md-tooltip>
+                  <i class="material-icons icon">settings</i>
+                </md-button>
+              </md-fab-actions>
+            </md-fab-speed-dial>
+          </div>
+        </div>
+</div>
+        <!--로그인 되면 나오는 다이얼-->
+
       </div>
     </md-toolbar>
 
@@ -81,6 +115,9 @@
   <script src="app/services/services.js"></script>
   <script src="app/content/content.js"></script>
   <script src="app/auth/auth.js"></script>
+  <!--LoginCtrl-->
+  <script src="app/auth/loginModalController.js"></script>
+  <!--LoginCtrl-->
   <script src="index.js"></script>
   <script src="app/app.js"></script> 
 </body>

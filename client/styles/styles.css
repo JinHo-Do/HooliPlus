@@ -264,3 +264,38 @@ md-sidenav.md-sidenav-left.ng-isolate-scope._md.md-whiteframe-4dp{
   md-sidenav{ max-width: 250px;}
  
 }
+md-sidenav{
+  max-width: 250px;
+}
+
+/* 로그인 모달 창 관련 */
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 200px;
+  min-height: 200px;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+  md-fab-trigger {
+    margin-top: -10px;
+}
+
+.md-button.md-fab {
+    line-height: 45px;
+    width: 45px;
+    height: 45px;
+}
+.icon {
+  margin-top: 7px;
+}
+/* 로그인 모달 창 관련 */

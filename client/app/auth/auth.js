@@ -13,6 +13,7 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
       .then(function (token) {
         $window.localStorage.setItem('com.hooliplus', token);
         if ($scope.user.username) {
+          $rootScope.username = $scope.user.username;
           $mdDialog.hide();
           $scope.checkLogin();
           $location.path('/');
@@ -47,6 +48,12 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
         alert('이미 있는 아이디')
       });
   };
+
+  // 로그아웃
+  $scope.signout = function() {
+    $window.localStorage.removeItem('com.hooliplus');
+    $location.path('/');
+  }
 
   // 로그인 모달창
   $scope.customFullscreen = false;
