@@ -3,7 +3,7 @@
 // Auth 서비스는 가입 / 로그인 양식에서 사용됩니다.
 angular.module('HooliPlus.auth', ['ngMaterial'])
 
-.controller('AuthController', function ($scope, $window, $location, Auth, $mdDialog) {
+.controller('AuthController', function ($scope, $window, $location, Auth, $mdDialog, $rootScope) {
   $scope.user = {};
 
   $scope.signin = function () {
@@ -14,12 +14,21 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
         $window.localStorage.setItem('com.hooliplus', token);
         if ($scope.user.username) {
           $mdDialog.hide();
+          $scope.checkLogin();
           $location.path('/');
         }
       })
       .catch(function (error) {
         console.error(error);
       });
+  };
+
+  // 로그인 된 회원인지 확인 합니다.
+  $scope.isLogin = false;
+  $scope.checkLogin = function() {
+    console.log('try login')
+    $scope.isLogin = !!$window.localStorage.getItem('com.hooliplus');
+    console.log('isLogin: ', $scope.isLogin);
   };
 
   $scope.signup = function () {
@@ -34,7 +43,8 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
         }
       })
       .catch(function (error) {
-        console.error(error);
+        console.error('회원 가입 실패', error);
+        alert('이미 있는 아이디')
       });
   };
 
@@ -50,9 +60,15 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
   
   $scope.showAdvanced = function(ev) {
     $mdDialog.show({
-      // controller: AuthController,
+      
+      // 템플릿 / 컨트롤러를 연결할 범위. 지정하지 않으면 새 격리 범위가 만들어집니다. preserveScope가 true로 설정되지 않은 경우 대화 상자가 제거되면이 범위가 삭제됩니다.
+      scope: $scope,
+      preserveScope: true,
+      // scope 와 preserveScope 가 없으면 스코프는 새 범위가 생성되며 모달 창이 제거되면 스코프도 사라집니다.
+
       templateUrl: 'app/auth/signin-popup.html',
       parent: angular.element(document.body),
+
       targetEvent: ev,
       clickOutsideToClose:true,
       fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
@@ -89,4 +105,5 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
     //   $scope.status = 'You cancelled the dialog.';
     // });
   };
+
 })
