@@ -1,0 +1,302 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+div {
+  display: block;
+}
+
+video {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+md-sidenav.md-sidenav-left.ng-isolate-scope._md.md-whiteframe-4dp{
+  position: fixed;
+}
+
+.content-card {
+  max-width: 530px;
+  min-width: 280px;
+  width: 100%;
+  margin: 0 auto 0;
+  outline: none;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  z-index: 1;
+  border-radius: 2px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-align: start;
+  width: 100%;
+}
+
+
+.content-card-box {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin: 16px;
+}
+
+.content-card-title {
+  font-weight: 500;
+  margin-right: 16px;
+  padding:0 0 0 2px;
+  white-space: nowrap;
+  flex: auto;
+  width: 120px;
+  line-height: 18px;
+  text-align: start;
+}
+
+.content-card-username {
+  margin-left: 6px;
+  max-width: 100%;
+  white-space: nowrap;
+  float: left;
+  color: rgb(0,0,0,0.87);
+  font-size: 14px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  flex: auto;
+}
+
+.content-card-date-box {
+  position: relative;
+}
+
+.content-card-date-title {
+  width: 48px;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #9E9E9E;
+}
+
+.ELUvyf {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0 16px 16px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.fu533b {
+  line-height: 20px;
+  overflow: scroll;
+  max-height: 180px;
+}
+
+.wftCae {
+  float: right;
+  width: 100%;
+  margin-left: -5px;
+  direction: ltr;
+}
+
+.user-card-profile-photo {
+  display: block;
+  border-radius: 50%;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; 
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 16px;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content-card-others-box {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-align: start;
+  white-space: normal;
+  line-height: normal;
+}
+
+.KRktze {
+  display: block;
+  margin: 0 8px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.GsLz7c {
+  background: #eeeeee;
+  display: block;
+  height: 36px;
+  width: 36px;
+  color: #444;
+  fill: #444;
+  transition: background .3s;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  z-index: 0;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+.cUjEhd {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.content-card-like-text {
+  line-height: 36px;
+  color: #777;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+
+.content-card-comments {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0px 16px;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: scroll;
+}
+
+.test.ng-hide{
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:0.5s linear all;
+    opacity:0;
+}
+
+.test{
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+}
+
+.animate-enter, 
+.animate-leave
+{ 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+} 
+
+.animate-enter.animate-enter-active, 
+.animate-leave {
+    opacity: 1;
+    top: 0;
+    height: 30px;
+}
+
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+    top: -50px;
+    height: 0px;
+}
+
+.hoolilist{
+	font-size: 14px;
+	color: rgba(0,0,0,0.87);
+	cursor: pointer;
+	padding: 0 12px 0 20px;
+}
+.hoolilist:hover {
+	background-color: #e7e7e7;	
+}
+
+.center{
+	display:inline-block;
+	vertical-align: middle;
+	color: #757575;
+}
+
+.hoolilist span{
+	line-height: 50px;
+	display:inline-block;
+	vertical-align: middle;
+	padding: 0px 12px 0px 20px;
+}
+
+/* 모바일 Device : 0 ~ 640 */
+@media screen and (max-width: 640px){
+  md-sidenav{ max-width: 150px; }
+ 
+}
+/* Tablet Device : 641 ~ 768 */
+@media screen and (min-width:641px){
+ md-content.md-padding._md.layout-xs-column.layout-row{ margin-left: 20px;}
+ md-sidenav{ max-width: 250px;}
+ 
+/* Desktop Device : 1024 이상 */
+@media screen and (min-width:1024px){
+  md-content.md-padding._md.layout-xs-column.layout-row{ margin-left: 250px; }
+  md-sidenav{ max-width: 250px;}
+ 
+}
+md-sidenav{
+  max-width: 250px;
+}
+
+/* 로그인 모달 창 관련 */
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 200px;
+  min-height: 200px;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+  md-fab-trigger {
+    margin-top: -10px;
+}
+
+.md-button.md-fab {
+    line-height: 45px;
+    width: 45px;
+    height: 45px;
+    font-size: 12px;
+}
+.icon {
+  margin-top: 7px;
+}
+/* 로그인 모달 창 관련 */

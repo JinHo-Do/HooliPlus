@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app='HooliPlus'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>Hooli Plus</title>
+  <!--Angular Material CSS-->
+  <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+<!--
+  [Socket.io]
+  <script src="lib/socket.io.js"></script>
+  <script>
+    var socket = io.connect('http://localhost:8000');
+    socket.on('news', function (data) {
+      console.log(data);
+      socket.emit('my other event', { my: 'data' });
+    });
+  </script> -->
+
+</head>
+<body>
+  <div ng-controller="MainController" layout="column" ng-cloak >
+    <md-toolbar class="md-hue-2" style="background-color:#d32f2f">
+      <div class="md-toolbar-tools" >
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+          <i class="material-icons" style="color: #ffffff;" ng-click="toggleLeft()">sort</i>
+        </md-button>
+        <h2 flex md-truncate>Hooli+</h2>
+
+        <form ng-submit="$event.preventDefault()" flex>
+          <md-autocomplete
+              md-items=""
+              placeholder="찾고싶은게 있으신가요?"
+              md-menu-class="autocomplete-custom-template">
+          </md-autocomplete>
+        </form>
+        
+        <!--로그인 되면 나오는 다이얼-->
+        <div flex layout="row">
+          <div flex layout="column" ng-controller="LoginCtrl" ng-cloak>
+            <div class="lock-size" layout="row" layout-align="center center">
+              <md-fab-speed-dial class="md-fab-top-right" md-open="isOpen" md-direction="{{selectedDirection}}"
+                                ng-class='selectedMode' ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">
+                <md-fab-trigger>
+                  <md-button aria-label="menu" class="md-fab md-warn">
+                    {{username[0] || 'H+'}}
+                  </md-button>
+                </md-fab-trigger>
+
+                <md-fab-actions ng-controller="AuthController">
+                  <md-button aria-label="LogIn" class="md-fab md-raised md-mini" ng-click="showAdvanced($event);$event.preventDefault();">
+                    <md-tooltip md-direction="left" md-visible="tooltipVisible">로그인</md-tooltip>
+                    <i class="material-icons icon">lock</i>
+                  </md-button>
+                  <md-button aria-label="LogOut" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left" md-visible="tooltipVisible">로그아웃</md-tooltip>
+                    <i class="material-icons icon" ng-click="signout()">lock_open</i>
+                  </md-button>
+                  <md-button aria-label="Setting" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left" md-visible="tooltipVisible">셋팅</md-tooltip>
+                    <i class="material-icons icon">settings</i>
+                  </md-button>
+                </md-fab-actions>
+              </md-fab-speed-dial>
+            </div>
+          </div>
+        </div>
+        <!--로그인 되면 나오는 다이얼-->
+
+      </div>
+    </md-toolbar>
+
+      <md-sidenav class="md-sidenav-left" md-component-id="left"
+                  md-disable-backdrop md-whiteframe="4">
+
+        <md-toolbar class="md-theme-indigo" style="background-color:#e53935">
+          <h1 class="md-toolbar-tools">
+            <i class="material-icons" style="color: #ffffff;" ng-click="toggleLeft()">sort</i>
+          </h1>
+        </md-toolbar>
+
+        <md-content layout-margin>
+          <div class="hoolilist"><i class="material-icons center">home</i><span>홈</span></div>
+          <div class="hoolilist"><i class="material-icons center">library_books</i><span>소식모음</span></div>
+          <div class="hoolilist"><i class="material-icons center">supervisor_account</i><span>Hooli+ 가입</span></div>
+          <md-divider></md-divider>
+          <div class="hoolilist"><i class="material-icons center">sms_failed</i><span>의견 보내기</span></div>
+          <div class="hoolilist"><i class="material-icons center">help_outline</i><span>도움말</span></div>
+          <div class="hoolilist" ng-click="toggleLeft()"><i class="material-icons center">keyboard_backspace</i><span>닫기</span></div>
+        </md-content>
+
+      </md-sidenav>
+
+      <div ng-view></div>
+  </div>
+
+  <!--Angular-->
+  <script src='lib/angular/angular.js'></script>
+  <!--Angular route-->
+  <script src="lib/angular-route/angular-route.js"></script>
+  <!--Angular Material JS-->
+  <script src="lib/angular-aria/angular-aria.js"></script>
+  <script src="lib/angular-animate/angular-animate.js"></script>
+  <script src="lib/angular-material/angular-material.js"></script>
+  <script src="lib/angular-messages/angular-messages.js"></script>
+  <!-- JS source related App-->
+  <script src="app/services/services.js"></script>
+  <script src="app/content/content.js"></script>
+  <script src="app/auth/auth.js"></script>
+  <!--LoginCtrl-->
+  <script src="app/auth/loginModalController.js"></script>
+  <!--LoginCtrl-->
+  <script src="index.js"></script>
+  <script src="app/app.js"></script> 
+</body>
+</html>

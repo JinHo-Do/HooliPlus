@@ -1,0 +1,173 @@
+<div ng-cloak>
+  <button class="md-fab md-fab-bottom-right docs-scroll-fab md-button md-ink-ripple scrolling" 
+          style="position: fixed; bottom: 32px; right: 32px; background-color: #e53935;" 
+          type="button" 
+          docs-scroll-class="scrolling" 
+          aria-label="Write" 
+          aria-hidden="false"
+          ng-click="createPostButton($event)">POST
+  </button>
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card ng-if="$odd" ng-repeat="item in items track by $index">
+        <div>
+          <div class='content-card-box'>
+            <img class='user-card-profile-photo' src='' width='36' height='36'>
+            <div class="content-card-title">
+              <span class="content-card-username">{{item._id}}</span>
+            </div>
+            <div class="content-card-date-box">
+              <span class="content-card-date-title">{{item.createdAt | date:'shortDate'}}</span>
+            </div>                
+          </div>
+
+          <div class='ELUvyf'>
+            <div class='fu533b'>
+              <div class='wftCae'>
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+
+          <div class='videoWrapper' ng-show='item.youtubeUrl'>
+            {{item.youtubeUrl}}
+            <iframe src="" frameborder="0" allowfullscreen></iframe>
+          </div><!--Comment Video-->
+
+          <div class='videoWrapper' ng-show='item.photoUrl'>
+
+            <img style='position:absolute; top:0; bottom: 0; width:100%; height:100%;'></iframe>
+          </div><!--Comment Video-->
+
+          <div class='ELUvyf'>
+            <div class='content-card-others-box' layout='row'>
+              <div class='KRktze'>
+                <span class='GsLz7c'>
+                  +1
+                </span>
+              </div><!--Comment like button-->
+              <div class='content-card-like-text'>
+                <span>{{item.like}}</span>
+              </div><!--Comment like Count-->
+              <div style='flex-grow: 1; flex-shrink: 1'></div>  
+              <div class='KRktze' ng-click = "inputComment = !inputComment;">
+                <span class='GsLz7c'>
+                  Re
+                </span>
+              </div><!--Comment show button-->
+              <div class='content-card-like-text'>
+                <span>{{item.comments.length}}</span>
+              </div>
+            </div>  
+          </div>
+          
+          <div ng-show="inputComment">
+            <div class='test' ng-repeat='comment in item.comments' style="border-top: 1px solid #EEEEEE;">
+              <div class='content-card-box'>
+                  <div>
+                    <img class='user-card-profile-photo' src='' width='36' height='36'>         
+                  </div><!--Comment User Picture Part-->
+
+                  <div class='content-card-comments'>
+                    <span style='font-weight: bold;'>{{comment.username}}: </span><span>{{comment.comment}} </span>  
+                  </div><!--Prev Comment text Part-->
+              </div><!--Prev Comment inner box-->
+            </div><!--Prev Comment Repeat-->
+            <form style="border-top: 1px solid #EEEEEE;" name="userCommentForm">
+              <div class='content-card-box'>
+                <img class='user-card-profile-photo' src='' width='36' height='36'>
+                <md-input-container class="content-card-title content-card-comments" style='margin-top: 20px;'>
+                  <label>Comments</label>                
+                  <textarea name="userComment" type='text' ng-model="comment.newComment" placeholder="댓글을 입력하세요" md-maxlength="180"></textarea>
+                  <div ng-messages="userCommentForm.userComment.$error">
+                    <div ng-message="md-maxlength" class="my-message">최대 글자수를 초과하였습니다.</div>
+                  </div>
+                </md-input-container><!--Comment input-->
+              </div><!--Comments input inner box-->
+              <md-button ng-click="addComment($event)" style="float: right;">게시하기</md-button><!--Comment Post Button-->
+            </div><!--Comment input box-->
+          </form><!--Comment box-->
+
+        </div>
+      </md-card>
+    </div>
+
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card ng-if="$even" ng-repeat="item in items track by $index">
+        <div>
+          <div class='content-card-box'>
+            <img class='user-card-profile-photo' src='' width='36' height='36'>
+            <div class="content-card-title">
+              <span class="content-card-username">{{item._id}}</span>
+            </div>
+            <div class="content-card-date-box">
+              <span class="content-card-date-title">{{item.createdAt | date:'shortDate'}}</span>
+            </div>                
+          </div>
+
+          <div class='ELUvyf'>
+            <div class='fu533b'>
+              <div class='wftCae'>
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+
+          <div class='videoWrapper' ng-show='item.youtubeUrl'>
+            <iframe src="https://www.youtube.com/embed/7SRatMWSxn4" frameborder="0" allowfullscreen></iframe>
+          </div><!--Comment Video-->
+
+          <div class='videoWrapper' ng-show='item.photoUrl'>
+            <img style='position:absolute; top:0; bottom: 0; width:100%; height:100%;'></iframe>
+          </div><!--Comment Video-->
+
+          <div class='ELUvyf'>
+            <div class='content-card-others-box' layout='row'>
+              <div class='KRktze'>
+                <span class='GsLz7c'>
+                  +1
+                </span>
+              </div><!--Comment like button-->
+              <div class='content-card-like-text'>
+                <span>{{item.like}}</span>
+              </div><!--Comment like Count-->
+              <div style='flex-grow: 1; flex-shrink: 1'></div>  
+              <div class='KRktze' ng-click = "inputComment = !inputComment;">
+                <span class='GsLz7c'>
+                  Re
+                </span>
+              </div><!--Comment show button-->
+              <div class='content-card-like-text'>
+                <span>{{item.comments.length}}</span>
+              </div>
+            </div>  
+          </div>
+          
+          <div ng-show="inputComment">
+            <div class='test' ng-repeat='comment in item.comments' style="border-top: 1px solid #EEEEEE;">
+              <div class='content-card-box'>
+                  <div>
+                    <img class='user-card-profile-photo' src='' width='36' height='36'>         
+                  </div><!--Comment User Picture Part-->
+
+                  <div class='content-card-comments'>
+                    <span style='font-weight: bold;'>{{comment.username}}: </span><span>{{comment.comment}} </span>  
+                  </div><!--Prev Comment text Part-->
+              </div><!--Prev Comment inner box-->
+            </div><!--Prev Comment Repeat-->
+            <div style="border-top: 1px solid #EEEEEE;">
+              <div class='content-card-box'>
+                <img class='user-card-profile-photo' src='' width='36' height='36'>
+                <md-input-container class="content-card-title content-card-comments" style='margin-top: 20px;'>
+                  <label>Comments</label>                
+                  <textarea name="userComment" type='text' ng-model="comment.newComment" placeholder="댓글을 입력하세요" md-maxlength="180"></textarea>
+                  <md-button ng-click="addComment($event)" style="float: right;">게시하기</md-button>
+                </md-input-container><!--Comment input-->
+              </div><!--Comments input inner box-->
+            </div><!--Comment input box-->
+          </div><!--Comment box-->
+
+        </div>
+    </div>
+  </md-content>
+</div>
