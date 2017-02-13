@@ -24,7 +24,7 @@
 </head>
 <body>
   <div ng-controller="MainController" layout="column" ng-cloak >
-   <md-toolbar class="md-hue-2" style="background-color:#d32f2f">
+    <md-toolbar class="md-hue-2" style="background-color:#d32f2f">
       <div class="md-toolbar-tools" >
         <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
           <i class="material-icons" style="color: #ffffff;" ng-click="toggleLeft()">sort</i>
@@ -52,7 +52,7 @@
                 </md-fab-trigger>
 
                 <md-fab-actions ng-controller="AuthController">
-                  <md-button aria-label="LogIn" class="md-fab md-raised md-mini" ng-click="showAdvanced($event)">
+                  <md-button aria-label="LogIn" class="md-fab md-raised md-mini" ng-click="showAdvanced($event);$event.preventDefault();">
                     <md-tooltip md-direction="left" md-visible="tooltipVisible">로그인</md-tooltip>
                     <i class="material-icons icon">lock</i>
                   </md-button>
@@ -67,7 +67,7 @@
                 </md-fab-actions>
               </md-fab-speed-dial>
             </div>
-        </div>
+          </div>
         </div>
         <!--로그인 되면 나오는 다이얼-->
 
@@ -83,18 +83,19 @@
           </h1>
         </md-toolbar>
 
-      <md-content layout-margin>
-        <div class="hoolilist"><i class="material-icons center">home</i><span>홈</span></div>
-        <div class="hoolilist"><i class="material-icons center">library_books</i><span>소식모음</span></div>
-        <div class="hoolilist"><i class="material-icons center">supervisor_account</i><span>Hooli+ 가입</span></div>
-         <md-divider></md-divider>
-        <div class="hoolilist"><i class="material-icons center">sms_failed</i><span>의견 보내기</span></div>
-        <div class="hoolilist"><i class="material-icons center">help_outline</i><span>도움말</span></div>
-        <div class="hoolilist" ng-click="toggleLeft()"><i class="material-icons center">keyboard_backspace</i><span>닫기</span></div>
-      </md-content>
+        <md-content layout-margin>
+          <div class="hoolilist"><i class="material-icons center">home</i><span>홈</span></div>
+          <div class="hoolilist"><i class="material-icons center">library_books</i><span>소식모음</span></div>
+          <div class="hoolilist"><i class="material-icons center">supervisor_account</i><span>Hooli+ 가입</span></div>
+          <md-divider></md-divider>
+          <div class="hoolilist"><i class="material-icons center">sms_failed</i><span>의견 보내기</span></div>
+          <div class="hoolilist"><i class="material-icons center">help_outline</i><span>도움말</span></div>
+          <div class="hoolilist" ng-click="toggleLeft()"><i class="material-icons center">keyboard_backspace</i><span>닫기</span></div>
+        </md-content>
 
       </md-sidenav>
-        <div ng-view></div>
+
+      <div ng-view></div>
   </div>
 
   <!--Angular-->

@@ -74,6 +74,8 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
       // scope 와 preserveScope 가 없으면 스코프는 새 범위가 생성되며 모달 창이 제거되면 스코프도 사라집니다.
 
       templateUrl: 'app/auth/signin-popup.html',
+      // templateUrl: 'signin-popup.html',
+      
       parent: angular.element(document.body),
 
       targetEvent: ev,

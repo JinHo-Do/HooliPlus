@@ -14,10 +14,6 @@ angular.module('HooliPlus', [
 
     // index.html 라우트
     .when('/', {
-      templateUrl: 'app/index/index.html', // 기본 레이아웃
-      controller: 'MainController'
-    })
-    .when('/', {
       templateUrl: 'app/content/content.html',
       controller: 'ContentController'
     })
