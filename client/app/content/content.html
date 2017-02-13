@@ -1,4 +1,12 @@
 <div ng-cloak>
+  <button class="md-fab md-fab-bottom-right docs-scroll-fab md-button md-ink-ripple scrolling" 
+          style="position: fixed; bottom: 32px; right: 32px; background-color: #e53935;" 
+          type="button" 
+          docs-scroll-class="scrolling" 
+          aria-label="Write" 
+          aria-hidden="false"
+          ng-click="createNewPost($event)">POST
+  </button>
   <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="50" layout="column">
       <md-card ng-if="$odd" ng-repeat="item in items track by $index">
@@ -68,7 +76,8 @@
                 <img class='user-card-profile-photo' src='/assets/{{item.username}}.png' width='36' height='36'>
                 <md-input-container class="content-card-title content-card-comments" style='margin-top: 20px;'>
                   <label>Comments</label>
-                  <input type='text'>
+                  <input type='text' ng-model="comment.newComment" placeholder="댓글을 입력하세요">
+                  <md-button ng-click="addComment($event)" style="float: right;">게시하기</md-button>
                 </md-input-container><!--Comment input-->
               </div><!--Comments input inner box-->
             </div><!--Comment input box-->
@@ -146,8 +155,9 @@
               <div class='content-card-box'>
                 <img class='user-card-profile-photo' src='/assets/{{item.username}}.png' width='36' height='36'>
                 <md-input-container class="content-card-title content-card-comments" style='margin-top: 20px;'>
-                  <label>Comments</label>
-                  <input type='text'>
+                  <label>Comments</label>                
+                  <input type='text' ng-model="comment.newComment" placeholder="댓글을 입력하세요">
+                  <md-button ng-click="addComment($event)" style="float: right;">게시하기</md-button>
                 </md-input-container><!--Comment input-->
               </div><!--Comments input inner box-->
             </div><!--Comment input box-->

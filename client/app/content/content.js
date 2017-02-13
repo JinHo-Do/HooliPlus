@@ -1,7 +1,34 @@
 angular.module('HooliPlus.content', ['ngAnimate'])
 
-.controller('ContentController', function ($scope, $interval) {
+.controller('ContentController', function ($scope, $interval, Content, $mdDialog) {
   $scope.data = {}
+
+  $scope.addComment = function($event) {
+    console.log('work!!');
+  }
+
+  $scope.getAllData = function() {
+    var allContent = Content.getAllContent()
+    .then(function(contents) {
+      console.log(contents);
+    })
+  }
+
+  $scope.createNewPost = function(ev) {
+    $mdDialog.show({
+      // controller: AuthController,
+      templateUrl: 'app/content/createNewPost.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+    })
+  };
+
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+
 
   $scope.items = [
     {
@@ -101,10 +128,5 @@ angular.module('HooliPlus.content', ['ngAnimate'])
     }
   ];
 
-  
+  });
 
-  $scope.textAnimation = ['123','456','789'];
-
-  
-
-});
