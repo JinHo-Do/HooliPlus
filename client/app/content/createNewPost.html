@@ -1,6 +1,6 @@
 <!--이페이지는 로그인 팝업창입니다. 앵귤러 머터리얼 dialog + input을 조합하였습니다.-->
-<md-dialog aria-label="signin" ng-controller="ContentController">
-  <form ng-cloak name="signinForm" ng-submit="signin()">
+<md-dialog aria-label="signin" ng-controller="ContentController" style="width: 40%;">
+  <form ng-cloak name="signinForm">
     <md-toolbar class="md-warn md-hue-2" style="background-color:#d32f2f">
       <div class="md-toolbar-tools">
         <h2>무슨 생각을 하고 계신가요?</h2>
@@ -11,7 +11,7 @@
     <md-content layout-padding>
       <md-input-container class="md-block">
         <label>글을 작성하세요!</label>
-        <textarea required name="id" ng-model="user.username"></textarea>
+        <textarea required name="id" ng-model="user.text"></textarea>
         <div ng-messages="signinForm.id.$error">
           <div ng-message="required">필수항목</div>
         </div>
@@ -32,10 +32,10 @@
     <md-dialog-actions layout="row">
       <span flex></span>
       <md-button class="md-accent" ng-click="cancel()">
-       취소
+        취소하기
       </md-button>
-      <md-button class="md-primary md-hue-1" ng-click="signin()">
-        로그인
+      <md-button class="md-primary md-hue-1" ng-click="uploadPost()">
+        게시하기
       </md-button>
     </md-dialog-actions>
   </form>

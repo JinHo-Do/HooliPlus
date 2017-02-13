@@ -4,8 +4,7 @@ angular.module('HooliPlus.services', [])
   var getAllContent = function (data) {
     return $http({
       method: 'GET',
-      url: '/api/content',
-      data: data
+      url: '/api/posts',
     })
     .then(function (resp) {
       return resp.data;
@@ -15,7 +14,7 @@ angular.module('HooliPlus.services', [])
   var postData = function (data) {
     return $http({
       method: 'POST',
-      url: '/api/content',
+      url: '/api/posts',
       data: data
     })
     .then(function (resp) {
