@@ -6,6 +6,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 // connect to mongo database named "hooliplus"
+mongoose.Promise = require('q').Promise;
 mongoose.connect('mongodb://localhost/hooliplus');
 
 // configure our server with all the middleware and routing
