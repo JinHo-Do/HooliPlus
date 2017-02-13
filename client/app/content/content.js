@@ -101,6 +101,8 @@ angular.module('HooliPlus.content', ['ngAnimate'])
     }
   ];
 
+  
+
   $scope.textAnimation = ['123','456','789'];
 
   
