@@ -57,6 +57,23 @@ angular.module('HooliPlus.services', [])
     });
   };
 
+  var checkAuth = function(){
+    return $http({
+      method : 'GET',
+      url : '/api/users/signedin' 
+    })
+    .then(function(resp){
+      if(resp.status === 201){
+        return true;
+      }else{
+        return false;
+      }
+    })
+    .catch(function(err){
+      return false;
+    });
+  }
+
   var isAuth = function () {
     return !!$window.localStorage.getItem('com.hooliplus');
   };
