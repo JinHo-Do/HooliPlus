@@ -24,7 +24,7 @@ angular.module('HooliPlus.auth', ['ngMaterial'])
   };
 
   // 로그인 된 회원인지 확인 합니다.
-  $scope.isLogin = false;
+  $scope.isLogin = !!$window.localStorage.getItem('com.hooliplus');
   $scope.checkLogin = function() {
     console.log('try login')
     $scope.isLogin = !!$window.localStorage.getItem('com.hooliplus');
