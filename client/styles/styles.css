@@ -13,9 +13,6 @@ video {
   height: auto;
 }
 
-md-content.md-padding._md.layout-xs-column.layout-row{
-  margin-left: 250px;
-}
 md-sidenav.md-sidenav-left.ng-isolate-scope._md.md-whiteframe-4dp{
   position: fixed;
 }
@@ -251,6 +248,19 @@ md-sidenav.md-sidenav-left.ng-isolate-scope._md.md-whiteframe-4dp{
 	padding: 0px 12px 0px 20px;
 }
 
-md-sidenav{
-  max-width: 250px;
+/* 모바일 Device : 0 ~ 640 */
+@media screen and (max-width: 640px){
+  md-sidenav{ max-width: 150px; }
+ 
+}
+/* Tablet Device : 641 ~ 768 */
+@media screen and (min-width:641px){
+ md-content.md-padding._md.layout-xs-column.layout-row{ margin-left: 20px;}
+ md-sidenav{ max-width: 250px;}
+ 
+/* Desktop Device : 1024 이상 */
+@media screen and (min-width:1024px){
+  md-content.md-padding._md.layout-xs-column.layout-row{ margin-left: 250px; }
+  md-sidenav{ max-width: 250px;}
+ 
 }
